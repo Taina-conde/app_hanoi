@@ -42,15 +42,24 @@
 					<img src="imagens/tower_empty.png" class="img-fluid" id="tower-right">
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-6 d-flex justify-content-end">
+					<button class="btn btn-dark btn-lg" onclick="startGame()">
+						START
+					</button>
+				</div>
+			
+			
+			</div>
 			<div class="row justify-content-center"><!--inputs-->
 				<div class="col-4">
 					<div class="form-group">
 						<label for="move-from">Where do you want to move the block from?</label>
-						<input type="text" class="form-control active" name="move-from"  id="move-from" placeholder="From">
+						<input type="text" onkeypress="captureInputFrom()" class="form-control input-lg" name="move-from"  id="move-from" placeholder="From">
 					</div>
 					<div class="form-group">
 						<label for="move-to">Where do you want to move it to?</label>
-						<input type="text" class="form-control" disabled="disabled" name="move-to" id="move-to" placeholder="To">
+						<input type="text" onkeypress="caputureInputTo()" class="form-control input-lg" disabled="disabled" name="move-to" id="move-to" placeholder="To">
 					</div>
 				</div>
 				

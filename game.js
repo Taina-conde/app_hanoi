@@ -2,7 +2,8 @@
 var time = 60;
 var largeBlock = 3;
 var mediumBlock = 2;
-var smallBlock = 1
+var smallBlock = 1;
+var countMoves = 0;
 //Stack class
 class Stack {
 	constructor() {
@@ -38,6 +39,7 @@ var towerRight = new Stack();
 towerLeft.push(largeBlock) //Left stack full
 towerLeft.push(mediumBlock)
 towerLeft.push(smallBlock)
+console.log(towerLeft.printStack())
 //Tower Left dinamics
 if (towerLeft.printStack() === '3 2 1 ') {
 	document.getElementById('tower-left').src = "imagens/tower_complete.png"
@@ -86,21 +88,119 @@ if (towerRight.printStack() === '3 2 1 ') {
 } else if (towerRight.printStack() === '3 1 ') {
 	document.getElementById('tower-right').src = "imagens/large_small.png"
 }
-var block = towerLeft.pop()
 
-console.log(block)
-towerMiddle.push(block)
-console.log('left:' + towerLeft.printStack())
-console.log('middle' + towerMiddle.printStack() + 'end')
-if (towerMiddle.printStack() === '1 ') {
-	document.getElementById('tower-middle').src = "imagens/small.png"
-}
+
+
 
 
 
 //game function
 function startGame() {
 	while (towerRight.printStack() !== '3 2 1 ') {
+		//game dinamics
+		var moveFrom = prompt("Where do you want to move the block from? L, M or R")
+		if (moveFrom === 'L') {
+			if (towerLeft.isEmpty()) {
+				alert('Invalid move, the tower you selected is empty! Choose another')
+				moveFrom = prompt("Where do you want to move the block from? L, M or R")
+			} else {
+				var block = towerLeft.pop()
+				var moveTo = prompt("Where do you want to move it to? L, M or R")
+				if (moveTo === "L") {
+					alert('Invalid move. You selected the same tower! Choose another')
+					moveTo = prompt("Where do you want to move it to? L, M or R")
+				} else if (moveTo === 'M') {
+					if (towerMiddle.isEmpty()) {
+						towerMiddle.push(block)
+						console.log('Middle tower:'+ towerMiddle.printStack())
+						countMoves++
+
+					} else {
+						if (towerMiddle.peek() < block) {
+							alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+							moveTo = prompt("Where do you want to move it to? L, M or R")
+						} else {
+							towerMiddle.push(block)
+							console.log('Middle tower:'+ towerMiddle.printStack())
+							countMoves++
+						}
+					}
+				} else if (moveTo === 'R') {
+					if (towerRight.peek() < block) {
+						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+						moveTo = prompt("Where do you want to move it to? L, M or R")
+					} else {
+						towerRight.push(block)
+						console.log('Right tower:'+ towerRight.printStack())
+						countMoves++
+					}
+				}
+			}
+			
+		}
+		if (moveFrom === 'M') {
+			if (towerMiddle.isEmpty()) {
+				alert('Invalid move, the tower you selected is empty! Choose another')
+				moveFrom = prompt("Where do you want to move the block from? L, M or R")
+			} else {
+				var block = towerMiddle.pop()
+				var moveTo = prompt("Where do you want to move it to? L, M or R")
+				if (moveTo === "M") {
+					alert('Invalid move. You selected the same tower! Choose another')
+					moveTo = prompt("Where do you want to move it to? L, M or R")
+				} else if (moveTo === 'L') {
+					if (towerLeft.peek() < block) {
+						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+						moveTo = prompt("Where do you want to move it to? L, M or R")
+					} else {
+						towerLeft.push(block)
+						console.log('Left tower:'+ towerLeft.printStack())
+						countMoves++
+					}
+				} else if (moveTo === 'R') {
+					if (towerRight.peek() < block) {
+						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+						moveTo = prompt("Where do you want to move it to? L, M or R")
+					} else {
+						towerRight.push(block)
+						console.log('Right tower:'+ towerRight.printStack())
+						countMoves++
+					}
+				}
+			}
+		}
+		if (moveFrom === 'R') {
+			if (towerRight.isEmpty()) {
+				alert('Invalid move, the tower you selected is empty! Choose another')
+				moveFrom = prompt("Where do you want to move the block from? L, M or R")
+			} else {
+				var block = towerRight.pop()
+				var moveTo = prompt("Where do you want to move it to? L, M or R")
+				if (moveTo === "R") {
+					alert('Invalid move. You selected the same tower! Choose another')
+					moveTo = prompt("Where do you want to move it to? L, M or R")
+				} else if (moveTo === 'M') {
+					if (towerMiddle.peek() < block) {
+						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+						moveTo = prompt("Where do you want to move it to? L, M or R")
+					} else {
+						towerMiddle.push(block)
+						console.log('Middle tower:'+ towerMiddle.printStack())
+						countMoves++
+					}
+				} else if (moveTo === 'L') {
+					if (towerLeft.peek() < block) {
+						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+						moveTo = prompt("Where do you want to move it to? L, M or R")
+					} else {
+						towerLeft.push(block)
+						console.log('left tower:'+ towerLeft.printStack())
+						countMoves++
+					}
+				}
+			}
+		}
+		//Tower Images
 		//Tower Left dinamics
 		if (towerLeft.printStack() === '3 2 1 ') {
 			document.getElementById('tower-left').src = "imagens/tower_complete.png"
@@ -149,13 +249,40 @@ function startGame() {
 		} else if (towerRight.printStack() === '3 1 ') {
 			document.getElementById('tower-right').src = "imagens/large_small.png"
 		}
-		//game dinamics
-		var moveFrom = prompt("Where do you want to move the block from? L, M or R")
 
-	}
+	}/* end of while loop*/
+	console.log(countMoves)
+	setTimeout(function(){
+		window.location.href = 'victory.html'
+	}, 1500)
+	
 
 
+} /* end of startGame function*/
+
+//startGame call
+
+//Capture Input functions
+
+function captureInputFrom() {
+	document.getElementById('move-from').disabled = ''
+	document.getElementById('move-to').disabled = 'disabled'
+	var inputFrom = document.getElementById('move-from').value
+	inputFrom.toUpperCase()
+	inputFrom.trim()
+	console.log(inputFrom)
+	return inputFrom
 }
+
+function captureInputTo() {
+	document.getElementById('move-from').disabled = 'disabled'
+	var inputTo = document.getElementById('move-to').value
+	inputTo.toUpperCase()
+	inputTo.trim()
+	return inputTo
+}
+
+
 
 //timer
 document.getElementById('timer').innerHTML = time;
