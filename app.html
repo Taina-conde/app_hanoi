@@ -56,11 +56,11 @@
 					<form class="d-flex">
 						<div class="form-group border col-6 justify-content-center">
 							<label for="move-from">Where do you want to move the block from?</label>
-							<input type="text" onkeyup="inputFrom = captureInputFrom(); console.log(inputFrom)" class="form-control" name="move-from"  id="move-from" placeholder="From: L, M or R">
+							<input type="text" onkeyup="inputFrom= captureInputFrom(); console.log(inputFrom); startGame();" class="form-control" name="move-from"  id="move-from" placeholder="From: L, M or R">
 						</div>
 						<div class="form-group col-6 justify-content-center">
 							<label for="move-to">Where do you want to move it to?</label>
-							<input type="text" onkeyup="inputTo = captureInputTo()" class="form-control" disabled="disabled" name="move-to" id="move-to" placeholder="To: L, M or R">
+							<input type="text" onkeyup=" inputTo = captureInputTo(); console.log(inputTo); startGame();" class="form-control" name="move-to" id="move-to" placeholder="To: L, M or R">
 						</div>
 					</form>
 				</div>

@@ -4,6 +4,8 @@ var largeBlock = 3;
 var mediumBlock = 2;
 var smallBlock = 1;
 var countMoves = 0;
+var inputFrom = '';
+var inputTo = '';
 
 //Stack class
 class Stack {
@@ -97,10 +99,12 @@ if (towerRight.printStack() === '3 2 1 ') {
 
 //game function
 function startGame() {
-	var inputFrom = '';
-	var inputTo = '';
-	while (towerRight.printStack() !== '3 2 1 ') {
+	if (towerRight.printStack() === '3 2 1 '){
+		window.location.href = 'victory.html'
+	} else{
+	//while (towerRight.printStack() !== '3 2 1 ') {
 		//game dinamics
+		
 		var moveFrom = inputFrom
 		if (moveFrom === 'L') {
 			if (towerLeft.isEmpty()) {
@@ -252,12 +256,13 @@ function startGame() {
 		} else if (towerRight.printStack() === '3 1 ') {
 			document.getElementById('tower-right').src = "imagens/large_small.png"
 		}
+	}//end of else (towerRight.printStack() !== '3 2 1')	
 
-	}/* end of while loop*/
-	console.log(countMoves)
+	/*} end of while loop*/
+	/*console.log(countMoves)
 	setTimeout(function(){
 		window.location.href = 'victory.html'
-	}, 1500)
+	}, 1500)*/
 	
 
 
@@ -268,26 +273,32 @@ startGame()
 //Capture Input functions
 
 function captureInputFrom() {
-	document.getElementById('move-from').disabled = ''
-	document.getElementById('move-to').disabled = 'disabled'
 	var inputFrom = document.getElementById('move-from').value
 	var inputFromUpper = inputFrom.toUpperCase()
 	inputFromUpper.trim()
-	console.log(inputFromUpper)
+	console.log('input from Upper' + inputFromUpper)
 	document.getElementById('move-from').value =''
-	document.getElementById('move-from').className ="form-control"
-	document.getElementById('move-to').className += " active"
+	if (inputFromUpper === 'L' || inputFromUpper==='M' || inputFromUpper==='R') {
+		document.getElementById('move-from').disabled = 'disabled'
+		document.getElementById('move-to').disabled = ''
+		
+	}
+	
+
 	return inputFromUpper
 }
 
 function captureInputTo() {
-	document.getElementById('move-from').disabled = 'disabled'
 	var inputTo = document.getElementById('move-to').value
 	var inputToUpper = inputTo.toUpperCase()
 	inputToUpper.trim()
 	document.getElementById('move-to').value =''
-	document.getElementById('move-to').className ="form-control"
-	document.getElementById('move-from').className += " active"
+	if (inputToUpper === 'L' || inputToUpper==='M' || inputToUpper==='R') {
+		document.getElementById('move-from').disabled = ''
+		document.getElementById('move-to').disabled = 'disabled'
+		
+	}
+
 	return inputToUpper
 }
 
