@@ -1,3 +1,16 @@
+body {
+	background: url(imagens/fundo-1.jpg) no-repeat;
+	background-size: cover;
+
+}
+
+/*style app*/
+
+.bg-opaque {
+	background-color: rgba(253, 254, 254, 0.5);
+}
+
+
 #box-timer{
 	color: white;
 	opacity: 0.8;
