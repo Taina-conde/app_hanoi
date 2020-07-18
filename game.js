@@ -301,6 +301,12 @@ function captureInputTo() {
 
 	return inputToUpper
 }
+// check if Right Tower is completed
+function checkRightTower() {
+	if (towerRight.printStack() === '3 2 1 '){
+		window.location.href = 'victory.html'
+	}
+}
 
 
 
