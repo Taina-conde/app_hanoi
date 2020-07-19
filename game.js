@@ -1,11 +1,28 @@
 // variables
-var time = 300;
+var time = 120;
 var largeBlock = 3;
 var mediumBlock = 2;
 var smallBlock = 1;
 var countMoves = 0;
 var inputFrom = '';
 var inputTo = '';
+
+//Difficulty level
+var level = window.location.search
+level = level.replace('?', '')
+if (level === 'easy') {
+	time = 100;
+}
+else if (level === 'normal') {
+	time = 60;
+}
+else if (level === 'hard') {
+	time === 40;
+}
+else if (level ==='challenging') {
+	time = 25;
+}
+
 
 //Stack class
 class Stack {
@@ -303,6 +320,7 @@ function captureInputTo() {
 
 // check if Right Tower is completed
 function checkRightTower() {
+	document.getElementById('number-moves').innerHTML = countMoves;
 	if (towerRight.printStack() === '3 2 1 '){
 		console.log(countMoves)
 		window.location.href = 'victory.html'
@@ -338,7 +356,8 @@ function checkRightTower() {
 
 
 
-//Victory 
+
+
 
 
 

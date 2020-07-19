@@ -1,14 +1,34 @@
+@font-face {
+	font-family: Adventure;
+	src: url(fonts/Adventure.ttf);
+}
+@font-face {
+	font-family: "Anatevka Caps";
+	src: url(fonts/Anatevka-Caps.ttf);
+}
+
+
 body {
 	background: url(imagens/fundo-1.jpg) no-repeat;
 	background-size: cover;
 
 
 }
-#victory h1 {
+.moves-style {
+	font-size: 2em;
 	color: white;
 }
+#victory h1,#welcome h1 {
+	color: #B45F04;
+	font-family: "Anatevka Caps";
+	font-size: 8em;
+}
+#welcome h3 {
+	color: #21610B; 
+}
 #victory h3 {
-	color: #58238C;
+	color: #21610B;
+	font-family: "Anatevka Caps"
 }
 
 /*style app*/

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Towers of Hanoi</title>
+	<title>Towers of Hanoi - Game</title>
 	<meta charset="utf-8">
 	
 	<!--Boostrap-->
@@ -15,12 +15,20 @@
 	<div class="container bg-opaque">
 		
 			<div class="row justify-content-around">
-				<div class="col-3" >
-					<div class="d-flex align-items-center justify-content-center p-1" id="box-timer">
-						<span id="timer"></span>
+				<div class="col-2 text-center" id="box-timer" >
+					<span id="timer"></span>
+				</div>	
+			</div>
+			
+			<div class="row justify-content-center">
+				<div class="col-2 d-flex moves-style bg-dark border">
+					<div class="col-auto p-1">
+						<p>Moves:</p>
+					</div>
+					<div class="col-auto p-1">
+						<span id="number-moves"></span>
 					</div>
 				</div>
-				
 			</div>
 			<div class="row m-3 p-2 justify-content-around">
 				<div class="col-3"><!--left tower-->
