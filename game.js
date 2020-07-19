@@ -50,17 +50,14 @@ function startGame() {
 		
 		var moveFrom = inputFrom
 		if (moveFrom === 'L') {
-			if (towerLeft.isEmpty()) {
-				alert('Invalid move, the tower you selected is empty! Choose another')
-				moveFrom = inputFrom
-			} else {
-				var block = towerLeft.pop()
+				var block = towerLeft.peek()
 				var moveTo = inputTo
 				if (moveTo === "L") {
 					alert('Invalid move. You selected the same tower! Choose another')
-					moveTo = inputTo
+					return
 				} else if (moveTo === 'M') {
 					if (towerMiddle.isEmpty()) {
+						var block = towerLeft.pop()
 						towerMiddle.push(block)
 						console.log('Middle tower:'+ towerMiddle.printStack())
 						countMoves++
@@ -68,8 +65,13 @@ function startGame() {
 					} else {
 						if (towerMiddle.peek() < block) {
 							alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
-							moveTo = inputTo
+							console.log('larger on smaller:')
+							console.log('left' + towerLeft.printStack())
+							console.log('middle' + towerMiddle.printStack())
+							console.log('Right' + towerRight.printStack())
+							return
 						} else {
+							var block = towerLeft.pop()
 							towerMiddle.push(block)
 							console.log('Middle tower:'+ towerMiddle.printStack())
 							countMoves++
@@ -78,78 +80,111 @@ function startGame() {
 				} else if (moveTo === 'R') {
 					if (towerRight.peek() < block) {
 						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
-						moveTo = inputTo
+						console.log('larger on smaller:')
+						console.log('left' + towerLeft.printStack())
+						console.log('middle' + towerMiddle.printStack())
+						console.log('Right' + towerRight.printStack())
+						return
 					} else {
+						var block = towerLeft.pop()
 						towerRight.push(block)
 						console.log('Right tower:'+ towerRight.printStack())
 						countMoves++
 					}
-				}
-			}
+				}//
+		}//
 			
-		}
+		
+		
 		if (moveFrom === 'M') {
-			if (towerMiddle.isEmpty()) {
-				alert('Invalid move, the tower you selected is empty! Choose another')
-				moveFrom = inputFrom
-			} else {
-				var block = towerMiddle.pop()
+				var block = towerMiddle.peek()
 				var moveTo = inputTo
 				if (moveTo === "M") {
 					alert('Invalid move. You selected the same tower! Choose another')
-					moveTo = inputTo
+					return
 				} else if (moveTo === 'L') {
-					if (towerLeft.peek() < block) {
-						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
-						moveTo = inputTo
-					} else {
+					if (towerLeft.isEmpty()) {
+						var block = towerMiddle.pop()
 						towerLeft.push(block)
 						console.log('Left tower:'+ towerLeft.printStack())
 						countMoves++
+
+					} else {
+						if (towerLeft.peek() < block) {
+							alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+							console.log('larger on smaller:')
+							console.log('left' + towerLeft.printStack())
+							console.log('middle' + towerMiddle.printStack())
+							console.log('Right' + towerRight.printStack())
+							return
+						} else {
+							var block = towerMiddle.pop()
+							towerLeft.push(block)
+							console.log('Left tower:'+ towerMiddle.printStack())
+							countMoves++
+						}
 					}
 				} else if (moveTo === 'R') {
 					if (towerRight.peek() < block) {
 						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
-						moveTo = inputTo
+						console.log('larger on smaller:')
+						console.log('left' + towerLeft.printStack())
+						console.log('middle' + towerMiddle.printStack())
+						console.log('Right' + towerRight.printStack())
+						return
 					} else {
+						var block = towerMiddle.pop()
 						towerRight.push(block)
 						console.log('Right tower:'+ towerRight.printStack())
 						countMoves++
 					}
-				}
-			}
-		}
+				}//
+		}//
+
 		if (moveFrom === 'R') {
-			if (towerRight.isEmpty()) {
-				alert('Invalid move, the tower you selected is empty! Choose another')
-				moveFrom = inputFrom
-			} else {
-				var block = towerRight.pop()
+				var block = towerRight.peek()
 				var moveTo = inputTo
 				if (moveTo === "R") {
 					alert('Invalid move. You selected the same tower! Choose another')
-					moveTo = prompt("Where do you want to move it to? L, M or R")
+					return
 				} else if (moveTo === 'M') {
-					if (towerMiddle.peek() < block) {
-						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
-						moveTo = inputTo
-					} else {
+					if (towerMiddle.isEmpty()) {
+						var block = towerRight.pop()
 						towerMiddle.push(block)
 						console.log('Middle tower:'+ towerMiddle.printStack())
 						countMoves++
+
+					} else {
+						if (towerMiddle.peek() < block) {
+							alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
+							console.log('larger on smaller:')
+							console.log('left' + towerLeft.printStack())
+							console.log('middle' + towerMiddle.printStack())
+							console.log('Right' + towerRight.printStack())
+							return
+						} else {
+							var block = towerRight.pop()
+							towerMiddle.push(block)
+							console.log('Middle tower:'+ towerMiddle.printStack())
+							countMoves++
+						}
 					}
 				} else if (moveTo === 'L') {
 					if (towerLeft.peek() < block) {
 						alert('Invalid mode. No disk can be placed on top of a smaller disk! Choose another')
-						moveTo = inputTo
+						console.log('larger on smaller:')
+						console.log('left' + towerLeft.printStack())
+						console.log('middle' + towerMiddle.printStack())
+						console.log('Right' + towerRight.printStack())
+						return
 					} else {
+						var block = towerRight.pop()
 						towerLeft.push(block)
-						console.log('left tower:'+ towerLeft.printStack())
+						console.log('Left tower:'+ towerLeft.printStack())
 						countMoves++
 					}
-				}
-			}
-		}
+				}//
+		}//
 		//Tower Images
 		//Tower Left dinamics
 		if (towerLeft.printStack() === '3 2 1 ') {
@@ -206,7 +241,8 @@ function startGame() {
 			document.getElementById('tower-right').src = "imagens/large_small.png"
 		}
 		
-} /* end of startGame function*/
+}
+ /* end of startGame function*/
 
 
 //Capture Input functions
