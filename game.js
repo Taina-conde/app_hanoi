@@ -249,6 +249,7 @@ function startGame() {
 document.getElementById('move-from').disabled = ''
 document.getElementById('move-to').disabled = 'disabled'
 
+
 function captureInputFrom() {
 	var inputFrom = document.getElementById('move-from').value
 	var inputFromUpper = inputFrom.toUpperCase()
@@ -303,34 +304,41 @@ function captureInputTo() {
 // check if Right Tower is completed
 function checkRightTower() {
 	if (towerRight.printStack() === '3 2 1 '){
-		window.location.href = 'victory.html'
 		console.log(countMoves)
+		window.location.href = 'victory.html'
+		
 	}
 }
 
 
 
 //timer
-document.getElementById('timer').innerHTML = time;
-
-var timer = setInterval(function() {
-	var boxTimer = document.getElementById("box-timer");
-	time--;
-	
-	//remaining more than 10 seconds - color green 
-	if (time > 10) {
-		boxTimer.className += " bg-success";
-	} else { // remaining 10 seconds - color red
-		boxTimer.className += " bg-danger";
-	}
-	if (time < 0) {
-		clearInterval(timer);
-		window.location.href = 'game_over.html';
-
-	} else {
 		document.getElementById('timer').innerHTML = time;
-	}
+		var timer = setInterval(function() {
+		var boxTimer = document.getElementById("box-timer");
+		time--;
+		
+		//remaining more than 10 seconds - color green 
+		if (time > 10) {
+			boxTimer.className += " bg-success";
+		} else { // remaining 10 seconds - color red
+			boxTimer.className += " bg-danger";
+		}
+		if (time < 0) {
+			clearInterval(timer);
+			window.location.href = 'game_over.html';
+
+		} else {
+			document.getElementById('timer').innerHTML = time;
+		}
 
 
-}, 1000);
+	}, 1000);
+
+
+
+
+//Victory 
+
+
 

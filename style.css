@@ -1,7 +1,14 @@
 body {
-	/*background: url(imagens/fundo-1.jpg) no-repeat;
-	background-size: cover;*/
+	background: url(imagens/fundo-1.jpg) no-repeat;
+	background-size: cover;
 
+
+}
+#victory h1 {
+	color: white;
+}
+#victory h3 {
+	color: #58238C;
 }
 
 /*style app*/
