@@ -42,67 +42,10 @@ var towerRight = new Stack();
 towerLeft.push(largeBlock) //Left stack full
 towerLeft.push(mediumBlock)
 towerLeft.push(smallBlock)
-console.log(towerLeft.printStack())
-//Tower Left dinamics
-if (towerLeft.printStack() === '3 2 1 ') {
-	document.getElementById('tower-left').src = "imagens/tower_complete.png"
-} else if (towerLeft.printStack() === '3 2 ') {
-	document.getElementById('tower-left').src = "imagens/large_medium.png"
-} else if (towerLeft.printStack() === '3 ') {
-	document.getElementById('tower-left').src = "imagens/large.png"
-} else if (towerLeft.printStack() === '') {
-	document.getElementById('tower-left').src = "imagens/tower_empty.png"
-} else if (towerLeft.printStack() === '2 1 ') {
-	document.getElementById('tower-left').src = "imagens/medium_small.png"
-} else if (towerLeft.printStack() === '1 ') {
-	document.getElementById('tower-left').src = "imagens/small.png"
-} else if (towerLeft.printStack() === '3 1 ') {
-	document.getElementById('tower-left').src = "imagens/large_small.png"
-}
-//Tower Middle dinamics
-if (towerMiddle.printStack() === '3 2 1 ') {
-	document.getElementById('tower-middle').src = "imagens/tower_complete.png"
-} else if (towerMiddle.printStack() === '3 2 ') {
-	document.getElementById('tower-middle').src = "imagens/large_medium.png"
-} else if (towerMiddle.printStack() === '3 ') {
-	document.getElementById('tower-middle').src = "imagens/large.png"
-} else if (towerMiddle.printStack() === '') {
-	document.getElementById('tower-middle').src = "imagens/tower_empty.png"
-} else if (towerMiddle.printStack() === '2 1 ') {
-	document.getElementById('tower-middle').src = "imagens/medium_small.png"
-} else if (towerMiddle.printStack() === '1 ') {
-	document.getElementById('tower-middle').src = "imagens/small.png"
-} else if (towerMiddle.printStack() === '3 1 ') {
-	document.getElementById('tower-middle').src = "imagens/large_small.png"
-}
-//Tower Right dinamics
-if (towerRight.printStack() === '3 2 1 ') {
-	document.getElementById('tower-right').src = "imagens/tower_complete.png"
-} else if (towerRight.printStack() === '3 2 ') {
-	document.getElementById('tower-right').src = "imagens/large_medium.png"
-} else if (towerRight.printStack() === '3 ') {
-	document.getElementById('tower-right').src = "imagens/large.png"
-} else if (towerRight.printStack() === '') {
-	document.getElementById('tower-right').src = "imagens/tower_empty.png"
-} else if (towerRight.printStack() === '2 1 ') {
-	document.getElementById('tower-right').src = "imagens/medium_small.png"
-} else if (towerRight.printStack() === '1 ') {
-	document.getElementById('tower-right').src = "imagens/small.png"
-} else if (towerRight.printStack() === '3 1 ') {
-	document.getElementById('tower-right').src = "imagens/large_small.png"
-}
-
-
-
-
 
 
 //game function
 function startGame() {
-	if (towerRight.printStack() === '3 2 1 '){
-		window.location.href = 'victory.html'
-	} else{
-	//while (towerRight.printStack() !== '3 2 1 ') {
 		//game dinamics
 		
 		var moveFrom = inputFrom
@@ -215,6 +158,8 @@ function startGame() {
 			document.getElementById('tower-left').src = "imagens/large_medium.png"
 		} else if (towerLeft.printStack() === '3 ') {
 			document.getElementById('tower-left').src = "imagens/large.png"
+		} else if (towerLeft.printStack() === '2 ') {
+			document.getElementById('tower-left').src = "imagens/medium.png"
 		} else if (towerLeft.printStack() === '') {
 			document.getElementById('tower-left').src = "imagens/tower_empty.png"
 		} else if (towerLeft.printStack() === '2 1 ') {
@@ -231,6 +176,8 @@ function startGame() {
 			document.getElementById('tower-middle').src = "imagens/large_medium.png"
 		} else if (towerMiddle.printStack() === '3 ') {
 			document.getElementById('tower-middle').src = "imagens/large.png"
+		} else if (towerMiddle.printStack() === '2 ') {
+			document.getElementById('tower-middle').src = "imagens/medium.png"
 		} else if (towerMiddle.printStack() === '') {
 			document.getElementById('tower-middle').src = "imagens/tower_empty.png"
 		} else if (towerMiddle.printStack() === '2 1 ') {
@@ -247,6 +194,8 @@ function startGame() {
 			document.getElementById('tower-right').src = "imagens/large_medium.png"
 		} else if (towerRight.printStack() === '3 ') {
 			document.getElementById('tower-right').src = "imagens/large.png"
+		} else if (towerRight.printStack() === '2 ') {
+			document.getElementById('tower-right').src = "imagens/medium.png"
 		} else if (towerRight.printStack() === '') {
 			document.getElementById('tower-right').src = "imagens/tower_empty.png"
 		} else if (towerRight.printStack() === '2 1 ') {
@@ -256,20 +205,10 @@ function startGame() {
 		} else if (towerRight.printStack() === '3 1 ') {
 			document.getElementById('tower-right').src = "imagens/large_small.png"
 		}
-	}//end of else (towerRight.printStack() !== '3 2 1')	
-
-	/*} end of while loop*/
-	/*console.log(countMoves)
-	setTimeout(function(){
-		window.location.href = 'victory.html'
-	}, 1500)*/
-	
-
-
+		
 } /* end of startGame function*/
 
-//startGame call
-startGame()
+
 //Capture Input functions
 
 function captureInputFrom() {
@@ -278,13 +217,31 @@ function captureInputFrom() {
 	inputFromUpper.trim()
 	console.log('input from Upper' + inputFromUpper)
 	document.getElementById('move-from').value =''
+
+	if (inputFromUpper === 'L') {
+		if (towerLeft.isEmpty()) {
+			alert('Invalid move, the tower you selected is empty! Choose another')
+			//inputFrom = ''	
+		}
+
+	} else if (inputFromUpper === 'M'){
+		if (towerMiddle.isEmpty()) {
+			alert('Invalid move, the tower you selected is empty! Choose another')
+			//inputFrom = ''	
+		}
+
+	} else if (inputFromUpper === 'M'){
+		if (towerRight.isEmpty()) {
+			alert('Invalid move, the tower you selected is empty! Choose another')
+			//inputFrom = ''	
+		}
+	}
+	
 	if (inputFromUpper === 'L' || inputFromUpper==='M' || inputFromUpper==='R') {
 		document.getElementById('move-from').disabled = 'disabled'
 		document.getElementById('move-to').disabled = ''
 		
 	}
-	
-
 	return inputFromUpper
 }
 
@@ -301,10 +258,12 @@ function captureInputTo() {
 
 	return inputToUpper
 }
+
 // check if Right Tower is completed
 function checkRightTower() {
 	if (towerRight.printStack() === '3 2 1 '){
 		window.location.href = 'victory.html'
+		console.log(countMoves)
 	}
 }
 
