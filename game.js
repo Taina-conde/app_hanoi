@@ -210,6 +210,8 @@ function startGame() {
 
 
 //Capture Input functions
+document.getElementById('move-from').disabled = ''
+document.getElementById('move-to').disabled = 'disabled'
 
 function captureInputFrom() {
 	var inputFrom = document.getElementById('move-from').value
@@ -220,28 +222,31 @@ function captureInputFrom() {
 
 	if (inputFromUpper === 'L') {
 		if (towerLeft.isEmpty()) {
-			alert('Invalid move, the tower you selected is empty! Choose another')
-			//inputFrom = ''	
+			alert('Invalid move, the tower you selected is empty! Choose another')	
+		} else {
+			document.getElementById('move-from').disabled = 'disabled'
+			document.getElementById('move-to').disabled = ''
 		}
 
 	} else if (inputFromUpper === 'M'){
 		if (towerMiddle.isEmpty()) {
 			alert('Invalid move, the tower you selected is empty! Choose another')
-			//inputFrom = ''	
+				
+		} else {
+			document.getElementById('move-from').disabled = 'disabled'
+			document.getElementById('move-to').disabled = ''
 		}
 
-	} else if (inputFromUpper === 'M'){
+	} else if (inputFromUpper === 'R'){
 		if (towerRight.isEmpty()) {
-			alert('Invalid move, the tower you selected is empty! Choose another')
-			//inputFrom = ''	
+			alert('Invalid move, the tower you selected is empty! Choose another')	
+		}
+		else {
+			document.getElementById('move-from').disabled = 'disabled'
+			document.getElementById('move-to').disabled = ''
 		}
 	}
-	
-	if (inputFromUpper === 'L' || inputFromUpper==='M' || inputFromUpper==='R') {
-		document.getElementById('move-from').disabled = 'disabled'
-		document.getElementById('move-to').disabled = ''
-		
-	}
+
 	return inputFromUpper
 }
 
