@@ -15,13 +15,18 @@ body {
 
 }
 .moves-style {
-	font-size: 2em;
+	font-size: 1.2em;
 	color: white;
 }
-#victory h1,#welcome h1 {
+#victory h1, #welcome h1 {
 	color: #B45F04;
 	font-family: "Anatevka Caps";
 	font-size: 8em;
+}
+#game-over h1 {
+	color: #2E2E2E;
+	font-family: "Anatevka Caps";
+	font-size: 4em;
 }
 #welcome h3 {
 	color: #21610B; 
@@ -30,17 +35,90 @@ body {
 	color: #21610B;
 	font-family: "Anatevka Caps"
 }
+.image-over {
+	transform: rotate(15deg);
+	-ms-transform: rotate(15deg);
+	-webkit-transform:rotate(15deg);
+}
 
 /*style app*/
 
 .bg-opaque {
 	background-color: rgba(253, 254, 254, 0.5);
+	height: 100%;
 }
 
 
 #box-timer{
 	color: white;
 	opacity: 0.8;
-	font-size: 2.5em;
+	font-size: 1.2em;
 	font-weight: bold;
 }
+		/*Extra small devices */
+        @media (max-width: 575.98px) { 
+            #box-timer{
+            	font-size: 1.2em;
+            }
+
+
+        }
+
+        /*Small devices */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            #box-timer{
+            	font-size: 1.5em;
+            }
+            .moves-style {
+				font-size: 1.5em;
+				
+			}
+			#game-over h1 {
+				font-size: 5em;
+			}
+        }
+
+        /*Medium devices */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            #box-timer {
+            	font-size: 1.3em;
+            }
+            .moves-style {
+				font-size: 1.3em;
+				
+			}
+			#game-over h1 {
+				font-size: 6em;
+			}
+        }
+
+        /*Large devices */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+        	#box-timer{
+        		font-size: 1.7em;
+        	}
+        	.moves-style {
+				font-size: 1.7em;
+				
+			}
+			#game-over h1 {
+				font-size: 7em;
+			}
+            
+        }
+
+        /*Extra large devices */
+        @media (min-width: 1200px) {
+        	#box-timer{
+        		font-size: 2em;
+        	}
+        	.moves-style {
+				font-size: 2em;
+				
+			}
+			#game-over h1 {
+				font-size: 8em;
+			}
+
+             
+        }

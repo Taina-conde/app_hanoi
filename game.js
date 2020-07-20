@@ -289,6 +289,7 @@ function captureInputFrom() {
 		} else {
 			document.getElementById('move-from').disabled = 'disabled'
 			document.getElementById('move-to').disabled = ''
+			document.getElementById('move-to').autofocus = 'autofocus'
 		}
 
 	} else if (inputFromUpper === 'R'){
@@ -298,6 +299,7 @@ function captureInputFrom() {
 		else {
 			document.getElementById('move-from').disabled = 'disabled'
 			document.getElementById('move-to').disabled = ''
+			
 		}
 	}
 
@@ -324,6 +326,7 @@ function checkRightTower() {
 	if (towerRight.printStack() === '3 2 1 '){
 		console.log(countMoves)
 		window.location.href = 'victory.html'
+
 		
 	}
 }

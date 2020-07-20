@@ -12,20 +12,18 @@
 	
 </head>
 <body>
-	<div class="container bg-opaque">
-		
+	<div class="container ">
+		<div class="bg-opaque">
 			<div class="row justify-content-around">
-				<div class="col-2 text-center" id="box-timer" >
+				<div class="col-3 col-md-2 text-center" id="box-timer" >
 					<span id="timer"></span>
 				</div>	
 			</div>
-			
+
 			<div class="row justify-content-center">
-				<div class="col-2 d-flex moves-style bg-dark border">
-					<div class="col-auto p-1">
-						<p>Moves:</p>
-					</div>
-					<div class="col-auto p-1">
+				<div class="col-3 col-md-2 d-flex moves-style bg-info">
+					<div >
+						<span>Moves:</span>
 						<span id="number-moves"></span>
 					</div>
 				</div>
@@ -50,12 +48,12 @@
 					<img src="imagens/tower_empty.png" class="img-fluid" id="tower-right">
 				</div>
 			</div>
-			<div class="row justify-content-center pb-5"><!--inputs-->
+			<div class="row justify-content-center mb-5"><!--inputs-->
 				<div class="col">
 					<form class="d-flex">
 						<div class="form-group  col-6 justify-content-center">
 							<label class="font-weight-bold" for="move-from">Move the disk from:</label>
-							<input type="text" onkeyup="inputFrom= captureInputFrom(); console.log(inputFrom);" class="form-control" name="move-from"  id="move-from" placeholder="L, M or R">
+							<input type="text" onkeyup="inputFrom= captureInputFrom(); console.log(inputFrom); " class="form-control" name="move-from"  id="move-from" placeholder="L, M or R" autofocus>
 						</div>
 						<div class="form-group col-6 justify-content-center">
 							<label class="font-weight-bold" for="move-to">Move the disk to: </label>
@@ -66,7 +64,7 @@
 				
 			</div>
 		
-		
+		</div>
 	</div>
 
 

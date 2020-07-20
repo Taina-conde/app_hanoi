@@ -10,37 +10,72 @@
 	<!--Custom Style-->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
+	<!--para intervalo do carousel funcionar-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 </head>
-<body>
-	<div class="container">
-		<div class="row ">
-			<div class="col justify-content-center" >
-				<img src="">
+<body id="game-over">
+	<div class="container ">
+		<div class="bg-opaque">
+			<div class="row justify-content-center ">
+				<div class="col-auto align-content-center" >
+					<h1>GAME OVER</h1>
+					
+				</div>
 				
 			</div>
-			
-		</div>
-		<div class="row">
-			<div class="col-6 d-flex justify-content-end">
-				<button class="btn btn-dark btn-lg" onclick="window.history.back()"><!--try again button-->
-					Try again
-				</button>
+			<div class="row justify-content-center mb-5">
+				<div class="col-6 col-md-4">
+					<div >
+						<div id="my-carousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner p-4">
+								<div class="carousel-item active">
+									<img  id="stack-image" class="image-over img-fluid" src="imagens/tower_empty.png">
+								</div>
+								<div class="carousel-item">
+									<img  id="stack-image" class="image-over img-fluid" src="imagens/large.png">
+								</div>
+								<div class="carousel-item">
+									<img  id="stack-image" class="image-over img-fluid" src="imagens/large_medium.png">
+								</div>
+								<div class="carousel-item">
+									<img  id="stack-image" class="image-over img-fluid" src="imagens/tower_complete.png">
+								</div>
+								
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+				
 			</div>
-			<div class="col-6 d-flex justify-content-start">
-				<button class="btn btn-primary btn-lg" onclick="window.location.href= 'index.html'"><!--back to menu button-->
-					Back to menu
-				</button>
+			<div class="row justify-content-center pb-5">
+				<div class="col-auto">
+					<button class="btn btn-dark btn-lg" onclick="window.history.back()"><!--try again button-->
+						Try again
+					</button>
+				</div>
+				<div class="col-auto">
+					<button class="btn btn-primary btn-lg" onclick="window.location.href= 'index.html'"><!--back to menu button-->
+						Back to menu
+					</button>
+				</div>
+				
 			</div>
-			
 		</div>
-		
 	</div>
 
 
 
 
 	<!-- custom script -->
-	
+	<script>
+		$(document).ready(function(){
+  			
+  				$("#my-carousel").carousel({interval: 800})
+  		});
+	</script>
 	<!--Bootstrap script-->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
