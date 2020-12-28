@@ -289,7 +289,7 @@ function captureInputFrom() {
 		} else {
 			document.getElementById('move-from').disabled = 'disabled'
 			document.getElementById('move-to').disabled = ''
-			document.getElementById('move-to').autofocus = 'autofocus'
+			document.getElementById('move-to')
 		}
 
 	} else if (inputFromUpper === 'R'){
