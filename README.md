@@ -8,6 +8,6 @@ This game consists of 3 towers and 3 disks to place one over the other. The game
 ## Instructions
 
 To start playing this game:
-   * first
-   * second
+   * fork and clone this repository
+   * open the index.html file in your browser
 
