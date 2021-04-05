@@ -8,6 +8,9 @@ This game consists of 3 towers and 3 disks to place one over the other. The game
 ## Instructions
 
 To start playing this game:
-   * fork and clone this repository
+   * clone this repository with `git clone https://github.com/Taina-conde/app_hanoi.git`
    * open the index.html file in your browser
 
+## Demo
+
+![Hanoi demo 4](https://user-images.githubusercontent.com/62517353/113632104-25b2bf00-9630-11eb-94a1-fe237b12e91b.gif)
